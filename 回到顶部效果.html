@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		.ad{width:100px;height:100px;margin:20px;background-color:red;float:left;}
+		.hh{background-color:#F96;}
+		#gotop{
+		    width:50px;
+			height:50px;
+			background-color:#CCC;
+			color:#fff;
+			position:fixed;
+			top:500px;
+			right:5px;
+			text-align:center;
+			line-height:50px;
+			border-radius:5px;	
+			cursor:pointer;
+			display: none;
+		}
+		
+		#gotop:hover{
+		    background-color:#999	
+		}
+		.cont{
+			width: 100%;
+			height: 5000px;
+			background-color: #009999;
+		}
+		</style>
+
+	</head>
+	<body>
+		
+		<div id="gotop">top</div>
+		<div class="cont">
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+			<h1>aaaaaaaaaaaa</h1>
+		</div>
+
+	</body>
+	<script>
+		function GoTop(go){
+		
+		$(go).click(function(){
+			
+			$('html,body').animate({scrollTop:0},'fast');
+		});
+		
+			$(window).scroll(function(){
+				if ($(this).scrollTop()>500) {
+					$(go).fadeIn('fast');
+				} else{
+					$(go).fadeOut('fast');
+				}
+			})
+		};
+		GoTop('#gotop');
+
+	</script>
+</html>

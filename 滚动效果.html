@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+.lottery-ry-mod .item {
+    margin-left: 42px;
+}
+.mt142 {
+    margin-top: 142px !important;
+}
+.wrap-lottery-list {
+	background-color: orange;
+    height: 192px;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.wrap-lottery-list .lottery-list {
+    position: relative;
+    top: 0;
+}
+.lottery-list li {
+    width: 100%;
+    font-size: 30px;
+    color: #4f5e81;
+    /*opacity: 0.4;*/
+    /*filter: alpha(opacity=40);*/
+    text-align: center;
+    line-height: 64px;
+    height: 64px;
+}
+.lottery-list li.special {
+    font-size: 50px;
+    color: #fff;
+}
+.lottery-success {
+    font-size: 50px;
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.lottery-success span {
+    color: #ffff00;
+}
+/*Name list start yy*/
+.name-list-table-wrap{
+    margin-bottom: 10px;
+    height: 355px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #35456b;
+    border-left: none;
+}
+.name-list-tbody{
+    position: absolute;
+    overflow: hidden;
+}
+.name-list-tbody tr{
+    display: block;
+}
+.name-list-tbody tr td{
+    border-left:1px solid #35456b;
+}
+.name-list-table tr th{
+    font-size: 24px;
+}
+.name-list-table tr td{
+    font-size: 20px;
+}
+.name-list-btn{
+    display: inline-block;
+    width: 180px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    background: url("/img/random/name_list_btn.png") no-repeat;
+}
+.name-list-btn:hover{
+    color: #fff;
+    background: url("/img/random/name_list_btn_hover.png") no-repeat;
+}
+.name-list-title{
+    background-color: #3366ff;
+    border:1px solid #35456b;
+    border-left: none;
+    border-top: none;
+}
+.name-list-title span{
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    height: 48px;
+    line-height: 48px;
+    border:1px solid #35456b;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    display: inline-block;
+}
+.w60{
+    width: 60px;
+}
+.w810{
+    width: 800px;
+}
+.w260{
+    width: 259px;
+}
+.w116{
+    width: 115px;
+    
+}
+.name-list-wrap{
+    width: 100%;
+    height: 305px;
+    overflow: hidden;
+    
+}
+.name-info-list{
+    width: 100%;
+    position: relative;
+    color: #fff;
+}
+.name-info-list li{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    border:1px solid #35456b;
+    border-left: none;
+    border-bottom: none;
+}
+.name-info-list li span{
+    color: #fff;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow :ellipsis;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    border:1px solid #35456b;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    display: inline-block;
+}
+		</style>
+	</head>
+	<body>
+		 <div class="wrap-lottery-list">
+                <ul class="lottery-list js-list">
+                    <li>1、杭州平行人造革有限公司</li>
+                    <li>2、浙江汇信科技有限公司</li>
+                    <li>3、浙江沙巴克网络科技有限公司</li>
+                    <li>4、杭州平行人造革有限公司</li>
+                    <li>5、浙江汇信科技有限公司</li>
+                    <li>6、浙江沙巴克网络科技有限公司</li>
+                    <li>7、浙江沙巴克网络科技有限公司</li>
+                </ul>
+        </div>
+	</body>
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+    carrousel();
+    /**
+     * 轮播
+     */
+    function carrousel(){
+        if (!$('.js-list').is(':hidden')) {
+            var timer = null;
+
+            $('.js-list').find('li').eq(1).addClass('special');
+
+            timer = setInterval(function () {
+                $('.js-list').find('li').removeClass('special');
+//              $('.js-list').find('li').eq(0).remove().appendTo($('.js-list'));
+				$('.js-list').find('li').eq(0).appendTo($('.js-list'));
+                $('.js-list').find('li').eq(1).addClass('special');
+
+            }, 1000);
+        }
+    }
+</script>
+</html>
