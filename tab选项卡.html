@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tab选项卡</title>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/***************************************工具样式*************/
+.center-block{/*居中显示*/
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pull-left{
+	float: left !important;
+}
+.pull-right{
+	float: right !important;
+}
+.text-left{
+	text-align: left !important;
+}
+.text-rihgt{
+	text-align: right !important;
+}
+.text-center{
+	text-align: center !important;
+}
+.hide{
+	display: none !important;/*元素消失*/
+}
+.show{
+	display: block !important;
+}
+.ivnisible{
+	visibility: hidden;/*隐藏还保留元素空间位置*/
+}
+.text-hide{/*隐藏文本*/
+	font:0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+	
+}
+/*清除浮动*/
+/*方法一:给受影响的容器盒子也添加浮动--不建议影响整个页面布局*/
+/*方法二:给受影响的容器盒子也添加overflow: hidden;--不建议*/
+/*方法三:给受影响的容器盒子添加一个伪类如.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden;}*/
+/*最终改进方案*/
+.clearfix:before,.clearfix:after{
+	content: '';
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+
+			.conters{
+				width: 1000px;
+				/*height: 600px;*/
+				background-color: #BBFFAA;
+				margin: 0 auto;
+			}
+			.conters1{
+				width: 1000px;
+				/*height: 600px;*/
+				background-color: #BBFFAA;
+				margin: 0 auto;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			.conters li{
+				display: inline-block;
+				float: left;
+				width: 100px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				color: orange;
+				border: 1px solid #000;
+				cursor:pointer;
+			}
+			.conters1 li{
+				display: inline-block;
+				float: left;
+				width: 100px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				color: orange;
+				border: 1px solid #000;
+				cursor:pointer;
+			}
+			.conters li:hover{
+				background-color: #000000;
+				color: #FFFFFF;
+			}
+			.conters1 li:hover{
+				background-color: #000000;
+				color: #FFFFFF;
+			}
+			.con{
+				width: 1000px;
+				height: 400px;
+				background-color: aqua;
+			}
+			.conq{
+				width: 1000px;
+				height: 400px;
+				background-color: aqua;
+			}
+			.con1{
+				background-color: #FF7F50;
+			}
+			.con2{
+				background-color: #FF0000;
+			}
+			.con3{
+				background-color: brown;
+			}
+			.con4{
+				background-color: aquamarine;
+			}
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.active{
+				background-color:darkgreen ;
+			}
+			.side{
+				display: block;
+			}
+			.side1{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="conters clearfix">
+			<ul class="clearfix side">
+				<li>篮球</li>
+				<li>足球</li>
+				<li>游泳</li>
+				<li>爬山</li>
+			</ul>
+			<div class="con con1">
+				<h1>11111</h1>
+			</div>
+			<div class="con con2" style="display: none;">
+				<h1>22222</h1>
+			</div>
+			<div class="con con3" style="display: none;">
+				<h1>33333</h1>
+			</div>
+			<div class="con con4" style="display: none;">
+				<h1>44444</h1>
+			</div>
+		</div>
+		
+			<div class="conters1 clearfix">
+				<ul class="clearfix side1">
+					<li>篮球</li>
+					<li>足球</li>
+					<li>游泳</li>
+					<li>爬山</li>
+				</ul>
+				<div class="conq con1">
+					<h1>11111</h1>
+				</div>
+				<div class="conq con2" style="display: none;">
+					<h1>22222</h1>
+				</div>
+				<div class="conq con3" style="display: none;">
+					<h1>33333</h1>
+				</div>
+				<div class="conq con4" style="display: none;">
+					<h1>44444</h1>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+//		$(function(){
+//			 $('.conters li').mouseover(function(){
+//          $(this).addClass('active').siblings().removeClass('active');
+////			$('.tatab-item span').css('right','1px');
+//           var index=$(this).index();
+//          $('.con').eq(index).show().siblings().hide();
+//          $('.side').css('display','block');
+//          })
+//		})
+		
+//		$(function(){
+//			function tab(act,con,side){
+//				$(this).addClass('active').siblings().removeClass('active');
+//           	var index=$(this).index();
+//          	$('.con1').eq(index).show().siblings().hide();
+//          	$('.side').css('display','block');
+//			};
+//			$('.conters li').on('mouseover',tab)
+			function tab(cont,act,con,side){
+				 $(cont).click(function(){
+			
+			            $(this).addClass(act).siblings().removeClass(act);
+			             var index=$(this).index();
+			            $(con).eq(index).show().siblings().hide();
+			            $(side).css('display','block');
+			            console.log(index)
+		            })
+			};
+			tab('.side li','active','.con','.side');
+			//封装复用的方法
+			tab('.side1 li','active','.conq','.side1');
+//		})
+	</script>
+</html>
